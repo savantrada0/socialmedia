@@ -1,14 +1,14 @@
-const express = require("express");
-const bodyparser = require("body-parser");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const path = require("path");
-const dotenv = require("dotenv");
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-const postRoutes = require("./routes/posts.js");
-const userRouter = require("./routes/user.js");
+import postRoutes from "./routes/posts.js";
+import userRouter from "./routes/user.js";
 
 const app = express();
 
@@ -19,11 +19,11 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRouter);
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+// app.use(express.static(path.join(__dirname, "./client/build")));
 
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 const CONNECTION_URL = process.env.MONGO_URI;
 const PORT = process.env.PORT || 5000;
