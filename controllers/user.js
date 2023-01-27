@@ -1,7 +1,6 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-
-import UserModal from "../models/user.js";
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const UserModal = require("../models/user");
 
 const secret = process.env.SECRET;
 
